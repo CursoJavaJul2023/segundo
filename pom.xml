@@ -26,6 +26,7 @@
 	  <groupId>cursojava.maven</groupId>
 	  <artifactId>primero</artifactId>
 	  <version>0.0.1-SNAPSHOT</version>
+	  <!-- Está presente en tiempo de compilación y hay distribuirla-->
 	  <scope>compile</scope>
 	</dependency>
 	
@@ -33,7 +34,9 @@
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
 	    <version>3.2.1.RELEASE</version>
-	    <scope>provided</scope>
+	    <!-- Está presente en tiempo de compilación pero no se distribuye -->
+	    <!-- <scope>provided</scope> -->
+	    <scope>compile</scope>
 	</dependency>
 
 	<dependency>
@@ -42,12 +45,32 @@
 	    <version>4.0.1</version>
 	    <scope>provided</scope>
 	</dependency>
-
-	  
+	
+	<dependency>
+	    <groupId>com.mysql</groupId>
+	    <artifactId>mysql-connector-j</artifactId>
+	    <version>8.1.0</version>
+	    <!-- No es necesario en tiempo de compilación pero si para ejecutar y se distribuye -->
+	    <scope>runtime</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>javart</groupId>
+		<artifactId>javart</artifactId>
+		<version>11</version>
+		<!-- 
+			Dependencia de una librería no Maven y se referencia de forma física por el sistema de ficheros
+			No se distribuye 
+		-->
+		<scope>system</scope>
+		<systemPath>${java.home}/lib/jrt-fs.jar</systemPath>
+	</dependency>
+		  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
+      <!-- No se necesita para compilar y ejecutar pruebas. No se distribuye -->
       <scope>test</scope>
     </dependency>
     
